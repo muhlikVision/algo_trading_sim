@@ -12,16 +12,17 @@ class TimeAwareRetriever:
         )
 
     def get_news_for_date(self, ticker: str, current_sim_date: str, k: int = 3):
+        query_date_int = int(current_sim_date.replace("-", "")) #for freakin chroma db restrictions
+        
         metadata_filter = {
             "$and": [
                 {"ticker": {"$eq": ticker}},
-                {"date": {"$lte": current_sim_date}}
+                {"date_int": {"$lte": query_date_int}} # Query the integer field!
             ]
         }
 
         query = f"Financial news and sentiment for {ticker}"
-
-        # Return the actual Document objects, not just strings
+        
         return self.vectorstore.similarity_search(
             query=query,
             k=k,
