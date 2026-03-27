@@ -35,4 +35,4 @@ jobs:
         NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }} 
       run: |
         # This will automatically find and run test_rag.py and test_portfolio.py
-        pytest -v tests/
+        python -m pytest -v tests/
