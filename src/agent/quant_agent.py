@@ -12,9 +12,9 @@ class TradingDecision(BaseModel):
 class QuantAgent:
     def __init__(self):
         # Initialize Nemotron. 
-        # We set temperature=0.1 because we want highly deterministic, logical outputs, not creative storytelling.
+        # set temperature=0.1 because we want highly deterministic, logical outputs, not creative storytelling.
         # Ensure you use the exact model ID for Nemotron 3 from your NVIDIA NIM dashboard.
-        self.llm = ChatNVIDIA(model="nvidia/nemotron-4-340b-instruct", temperature=0.1) 
+        self.llm = ChatNVIDIA(model="meta/llama-3.1-70b-instruct", temperature=0.1) 
         
         # 2. Bind the Pydantic schema to the LLM
         self.structured_llm = self.llm.with_structured_output(TradingDecision)

@@ -5,7 +5,11 @@ from langchain_nvidia_ai_endpoints import NVIDIAEmbeddings
 class TimeAwareRetriever:
     def __init__(self, persist_directory: str = "./chroma_db"):
 
-        self.embeddings = NVIDIAEmbeddings(model="nvidia/nv-embedqa-e5-v5")
+        #only working model rn 27/3
+        self.embeddings = NVIDIAEmbeddings(
+            model="nvidia/llama-3.2-nv-embedqa-1b-v2", 
+            truncate="NONE"
+        )
         self.vectorstore = Chroma(
             persist_directory=persist_directory, 
             embedding_function=self.embeddings

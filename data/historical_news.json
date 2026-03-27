@@ -1,0 +1,14 @@
+[
+  {
+    "date": "2022-03-10",
+    "ticker": "AAPL",
+    "headline": "Apple Announces Revolutionary Custom Silicon",
+    "content": "Apple today announced a breakthrough in custom silicon, promising massive performance gains and battery life for the next generation of MacBooks. Analysts expect this to drive record sales."
+  },
+  {
+    "date": "2022-03-15",
+    "ticker": "AAPL",
+    "headline": "Supply Chain Issues Hit Apple Factories",
+    "content": "Reports out of Asia indicate that major Apple suppliers are facing severe logistical delays. This could impact the upcoming quarter's hardware delivery numbers and hurt revenue."
+  }
+]

@@ -1,3 +1,4 @@
+import time
 import pandas as pd
 from src.engine.portfolio import Portfolio
 from src.agent.quant_agent import QuantAgent
@@ -27,6 +28,8 @@ class BacktestEngine:
             # 1. Retrieve context (Strictly <= current_date)
             news_docs = self.retriever.get_news_for_date(ticker, current_date)
             
+            print(f"DEBUG: Database found {len(news_docs)} articles for {current_date}")
+
             # 2. Get LLM Decision
             llm_response = self.agent.analyze_and_decide(ticker, current_date, news_docs)
             
@@ -41,6 +44,8 @@ class BacktestEngine:
             print(f"Agent Reasoning: {llm_response.reasoning}")
             print(f"Engine Action: {action}")
             print(f"Current Portfolio Value: ${self.portfolio.cash + (self.portfolio.shares * current_price):.2f}")
+            
+            time.sleep(3)
 
         # Final Report
         final_price = self.prices_df.iloc[-1]['Close']
