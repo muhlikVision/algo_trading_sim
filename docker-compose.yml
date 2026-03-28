@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  algo-engine:
+    build: .
+    container_name: algo-trading-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      # We map your local data folder so the container can read the CSV and JSON
+      - ./data:/app/data
+      # We create an isolated volume for the database so it survives container restarts
+      - chroma_data:/app/chroma_db
+
+volumes:
+  chroma_data:

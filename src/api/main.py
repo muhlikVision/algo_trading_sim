@@ -1,5 +1,9 @@
+from dotenv import load_dotenv
+load_dotenv()
+
 from fastapi import FastAPI
 from src.api.routes import router
+
 
 # Initialize the FastAPI app (This is the 'app' Uvicorn is looking for!)
 app = FastAPI(
