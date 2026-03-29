@@ -13,6 +13,7 @@ services:
       - ./data:/app/data
       # We create an isolated volume for the database so it survives container restarts
       - chroma_data:/app/chroma_db
+      - ./src:/app/src
 
 volumes:
   chroma_data:
