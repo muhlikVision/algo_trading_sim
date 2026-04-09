@@ -17,11 +17,11 @@ class MarketDataFetcher:
         stock = yf.Ticker(ticker)
         df = stock.history(start=start_date.strftime('%Y-%m-%d'), end=end_date.strftime('%Y-%m-%d'))
         
-        # Clean up the data to match what our engine expects
+        
         df = df.reset_index()
         df['Date'] = df['Date'].dt.strftime('%Y-%m-%d')
         
-        # Keep only the columns we care about
+        
         df = df[['Date', 'Open', 'High', 'Low', 'Close', 'Volume']]
         
         print(f"✅ Successfully downloaded {len(df)} days of data for {ticker}.")
