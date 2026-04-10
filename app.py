@@ -15,7 +15,8 @@ ticker = st.sidebar.text_input("Stock Ticker", value="AAPL").upper()
 days_back = st.sidebar.slider("Days of History (Live Data)", min_value=7, max_value=90, value=30)
 
 # The URL of your FastAPI Docker container
-API_URL = "http://127.0.0.1:8000/api/v1/simulate"
+#API_URL = "http://127.0.0.1:8000/api/v1/simulate"
+API_URL = "https://algo-trading-engine-xxxx.onrender.com/api/v1/simulate"
 
 if st.sidebar.button("🚀 Run Live AI Backtest", type="primary"):
     with st.spinner(f"Agent is fetching live market data and analyzing {ticker}..."):
